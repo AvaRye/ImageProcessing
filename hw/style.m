@@ -1,6 +1,6 @@
 %% 加载数据
-styleImage = im2double(imread('starryNight.jpg'));
-contentImage = imread('12.jpg');
+styleImage = im2double(imread('102.jpg'));
+contentImage = imread('connor.jpg');
 
 %% 加载特征提取网络 - VGG19
 net = vgg19;
@@ -38,7 +38,7 @@ styleTransferOptions.alpha = 1;
 styleTransferOptions.beta = 1e3;
 
 %% 设定训练数值
-numIterations = 1000;
+numIterations = 1500;
 learningRate = 2;
 trailingAvg = [];
 trailingAvgSq = [];
