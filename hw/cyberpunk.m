@@ -1,7 +1,8 @@
-function [] = cyberpunk()
+function cmy1 = cyberpunk(name)
     
-    I = imread('lena_std.tif');
-    figure; imshow(I);
+    %     I = imread(name);
+    I = name;
+%     figure; imshow(I);
     
     hsv = rgb2hsv(I);
     H = hsv(:,:,1); % 色调
@@ -13,10 +14,9 @@ function [] = cyberpunk()
     hsv1(:,:,1) = H;
     hsv1(:,:,2) = S;
     hsv1(:,:,3) = V;
-   
+    
     %转为RGB，进行显示
-    rgb = hsv2rgb(hsv1); 
-    figure; imshow(rgb);
+    rgb = hsv2rgb(hsv1);
     
     cmy = imcomplement(rgb);
     C = cmy(:,:,1);
@@ -25,9 +25,9 @@ function [] = cyberpunk()
     cmy1(:,:,1) = 1.1*C;
     cmy1(:,:,2) = 1.1*M;
     cmy1(:,:,3) = Y;
-    figure;
+    %     figure;
     cmy1 = imcomplement(cmy1);
-    imshow(cmy1);
+    %     imshow(cmy1);
     
     
 end

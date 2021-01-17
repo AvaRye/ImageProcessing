@@ -1,9 +1,11 @@
-function [result] = sketch( name, max_level )
-    I = imread(name);
+function result = sketch( name )
+    %     I = imread(name);
+    I = name;
+    max_level = 40;
     scope = 255 / (255-max_level);
     b = -scope * max_level;
     [m, n, c] = size(I);
-
+    
     if c > 1
         img_gray(:,:,1) = rgb2gray(I);
         img_gray(:,:,2) = rgb2gray(I);
@@ -13,8 +15,8 @@ function [result] = sketch( name, max_level )
         img_gray(:,:,2) = I;
         img_gray(:,:,3) = I;
     end
-    subplot(1,2,1);
-    imshow(I); title('origin');
+%     subplot(1,2,1);
+%     imshow(I); title('origin');
     
     % 简单调整曲线
     for i=1:m
@@ -44,8 +46,8 @@ function [result] = sketch( name, max_level )
     % 图层叠加
     img_mix = color_dodge(img_gray2, img_gray);
     result = uint8(img_mix);
-    subplot(1,2,2);
-    imshow(result);title('result');
+%     subplot(1,2,2);
+%     imshow(result);title('result');
 end
 
 % 最小值滤波器
